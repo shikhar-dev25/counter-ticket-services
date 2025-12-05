@@ -1,0 +1,45 @@
+.procedure-container {
+  background-color: #fff;
+}
+.section {
+  margin-bottom: 10px;
+}
+
+.top-title, .bottom-title {
+  background-color: #d9d9d9;
+  padding: 12px 15px;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  border-radius: 4px;
+}
+
+.procedure-list, .rules-list {
+  border: 0.1px solid #d9d9d9;
+  border-radius: 4px;
+  padding-left: 25px;
+  padding-right: 10px;
+  margin: 0;
+
+}
+
+.procedure-list li, .rules-list li {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  margin-bottom: 14px;
+  line-height: 1.2;
+  color: #171717;
+  font-size: 16px;
+  font-weight: 450;
+}
+
+.sub-list {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.sub-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #171717;
+}
