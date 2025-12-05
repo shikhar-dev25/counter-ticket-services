@@ -8,12 +8,10 @@
 
 .content-area {
   flex: 1 1 62%;
-  background-color: #9f4d4d;
 }
 
 .sidebar {
   flex: 1 1 38%;
-  background-color: #1ba4ad;
 }
 
 @media (max-width: 768px) {

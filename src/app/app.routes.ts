@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainLayout } from './layouts/main-layout/main-layout';
+import { TicketForm } from './pages/ticket-form/ticket-form';
 
 export const routes: Routes = [
   {
@@ -7,7 +8,7 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       { path: '', redirectTo: 'ticket-form', pathMatch: 'full' },
-      
+      { path: 'ticket-form', component: TicketForm }
     ]
   }
 ];

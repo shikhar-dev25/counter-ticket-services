@@ -10,5 +10,5 @@ import { ProcedurePanel } from '../../components/procedure-panel/procedure-panel
   styleUrl: './main-layout.css',
 })
 export class MainLayout {
-
+  
 }
