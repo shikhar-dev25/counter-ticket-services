@@ -1,0 +1,108 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.otp-container{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.otp-section{
+    width: 100%;
+}
+
+.otp-border{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 10px;
+    color: #4f4f4f;
+}
+
+.form-group{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+}
+.form-group label {
+    min-width: 150px;
+}
+
+.form-group input{
+    padding: 4px;
+}
+.form-group button{
+    padding: 4px 6px;
+    cursor: pointer;
+}
+.otp-message{
+    color: #369b36;
+    padding: 10px 20px;
+}
+
+.form-buttons{
+    /* border: 1px solid black; */
+    padding: 10px 20px;
+    display: flex;
+    gap: 10px;
+}
+.form-buttons button{
+    padding: 4px 10px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.sample-ticket img{
+    width: 400px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.sample-ticket img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.form-title{
+  background-color: #d9d9d9;
+  padding: 12px 15px;
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: #333;
+  border-radius: 4px;
+}
+
+
+
+
+@media (max-width: 768px){
+    
+    .otp-container{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group label {
+        min-width: 100px;
+    }
+
+    .form-control{
+        margin: 2px 0px;
+        width: 100px;
+    }
+
+    .sample-ticket img{
+        width: 100%;
+    }
+    .sample-ticket img:hover{
+        transform: scale(1.05);
+    }
+}

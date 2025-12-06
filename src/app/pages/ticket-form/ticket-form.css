@@ -18,22 +18,35 @@
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     padding: 10px;
-    font-size: 20px;
-    font-weight: 500;
     color: #4f4f4f;
 }
 
 .form-group{
-    padding: 0px 10px;
-    /* border: 1px solid black; */
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0px 20px;
     display: flex;
     justify-content: space-between;
 }
 
 .captcha-container{
-    margin: 5px 0px;
-    border: 1px solid black;
+    display: flex;
+    gap: 20px;
 }
+.captcha-container button{
+    border: none;
+}
+.captcha-box{
+    font-size: 20px;
+    color: #000000;
+    font-weight: 700;
+    letter-spacing: 5px;
+    padding: 10px 20px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    width: 35%;
+}
+
 
 .form-title{
   background-color: #d9d9d9;
@@ -42,6 +55,25 @@
   font-size: 18px;
   color: #333;
   border-radius: 4px;
+}
+
+.checkbox-group{
+    padding: 0px 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-buttons{
+    /* border: 1px solid black; */
+    padding: 10px 20px;
+    display: flex;
+    gap: 10px;
+}
+.form-buttons button{
+    padding: 4px 10px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 
@@ -54,4 +86,80 @@
 .sample-ticket img:hover{
     cursor: pointer;
     transform: scale(1.2);
+}
+
+
+
+
+@media (max-width: 768px) {
+    .ticket-form-container {
+        flex-direction: column;
+    }
+
+    .form-section {
+        max-width: 100%;
+    }
+
+    .form-title {
+        padding: 10px;
+        font-size: 20px;       
+    }
+
+    .form-group {
+        font-size: 18px;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+        padding-bottom: 2px;
+    }
+
+    .form-border{
+        gap:8px
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 5px 0px;
+        margin: 2px 0px;
+    }
+
+    .captcha-container {
+        padding: 0 20px;
+        gap: 20px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .captcha-box {
+        width: 80%;
+        font-size: 18px;
+        letter-spacing: 10px;
+    }
+
+    .checkbox-group {
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+
+    .form-buttons {
+        padding: 8px;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .sample-ticket {
+        width: 100%;
+    }
+
+    .sample-ticket img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sample-ticket img:hover {
+        transform: scale(1.10);
+    }
 }
