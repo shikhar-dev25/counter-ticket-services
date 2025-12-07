@@ -12,17 +12,33 @@
 
       <div class="form-group">
         <label>PNR Number</label>
-        <input type="text" class="form-control" placeholder="Enter PNR Number" />
+        <input 
+          type="text"
+          [(ngModel)]="pnrNumber"
+          maxlength="10"
+          pattern="[0-9]*" 
+          inputmode="numeric" 
+          class="form-control" 
+          placeholder="Enter PNR Number" 
+        />
       </div>
 
       <div class="form-group">
         <label>Train Number</label>
-        <input type="text" class="form-control" placeholder="Enter Train Number" />
+        <input 
+          type="text"
+          [(ngModel)]="trainNumber" 
+          maxlength="5"
+          pattern="[0-9]*" 
+          inputmode="numeric" 
+          class="form-control" 
+          placeholder="Enter Train Number" 
+        />
       </div>
 
       <div class="form-group">
         <label>Captcha</label>
-        <input type="text" class="form-control" placeholder="Enter Captcha" />
+        <input [(ngModel)]="captcha" type="text" class="form-control" placeholder="Enter Captcha" />
       </div>
       <div class="captcha-container">
         <div class="captcha-box">EDQ9LC</div>
@@ -32,16 +48,21 @@
       </div>
 
       <div class="checkbox-group">
-        <input style="cursor: pointer" type="checkbox" id="terms" />
-        <label for="terms" style="cursor: pointer">
+        <input [(ngModel)]="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
+        <label  for="terms" style="cursor: pointer">
           I have read cancellation/boarding point change procedure and its rule. </label
         >
         <a href="#procedure-section" style="color: #4456cb; text-decoration: underline"> click to read </a>
       </div>
 
       <div class="form-buttons">
-        <button class="btn-submit">Submit</button>
-        <button class="btn-reset">Reset</button>
+        <button 
+        (click)="onSubmit()" 
+        [disabled]="!formValid() || !isChecked" 
+        class="btn-submit">
+        Submit
+      </button>
+        <button (click)="onReset()" class="btn-reset">Reset</button>
       </div>
     </div>
   </div>

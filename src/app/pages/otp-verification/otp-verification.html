@@ -16,8 +16,8 @@
         <div class="form-group">
             <label>Enter OTP</label>
             <div  style="display: flex; gap: 10px; align-items: center;">
-            <input type="text" class="form-control" placeholder="Enter OTP" maxlength="6" style="flex: 1;">
-            <button class="btn-resend">Resend</button>
+            <input [(ngModel)]="otp" maxlength="6" inputmode="numeric" type="text" class="form-control" placeholder="Enter OTP" maxlength="6" style="flex: 1;">
+            <button (click)="onResend()" class="btn-resend">Resend</button>
             </div>
         </div>
 
@@ -26,8 +26,8 @@
         </div>
 
         <div class="form-buttons">
-            <button class="btn-submit">Submit</button>
-            <button class="btn-reset">Back</button>
+            <button [disabled]="!formValid()" (click)="onSubmit()" class="btn-submit">Submit</button>
+            <button (click)="onBack()" class="btn-reset">Back</button>
         </div>
         </div>
    </div> 
