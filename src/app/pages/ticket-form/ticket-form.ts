@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Ticket } from '../../services/ticket';
 @Component({
   selector: 'app-ticket-form',
   imports: [FormsModule],
@@ -8,7 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './ticket-form.css',
 })
 export class TicketForm {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private ticket: Ticket
+  ) {}
   
   pnrNumber = "";
   trainNumber = "";
@@ -23,6 +27,10 @@ export class TicketForm {
 
   onSubmit() {
     if (this.formValid() && this.isChecked){
+
+      this.ticket.pnrNumber = this.pnrNumber;
+      this.ticket.trainNumber = this.trainNumber;
+
       this.router.navigate(['/otp'])
     }
   }

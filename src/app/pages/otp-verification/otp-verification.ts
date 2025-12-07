@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Ticket } from '../../services/ticket';
 
 @Component({
   selector: 'app-otp-verification',
@@ -9,7 +10,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './otp-verification.css',
 })
 export class OtpVerification {
-  constructor (private router: Router) {}
+  constructor (
+    private router: Router,
+    public ticket: Ticket
+  ) {}
 
   otp = "";
 
