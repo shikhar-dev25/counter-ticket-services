@@ -46,3 +46,14 @@
   color: #171717;
 }
 
+@media (max-width: 768px){
+  .top-title, .bottom-title {
+    background-color: #d9d9d9;
+    padding: 6px 8px;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #333;
+    border-radius: 4px;
+  }
+}
+

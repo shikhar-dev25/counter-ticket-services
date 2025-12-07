@@ -10,7 +10,7 @@
     background-color: #fff;
 }
 
-.section-title, .section-header{
+.section-title, .section-header, .boarding-container label{
   background-color: #d9d9d9;
   padding: 12px 15px;
   margin: 0 0 15px 0;
@@ -108,6 +108,29 @@
     background-color: #e0e0e0;
 }
 
+/* ----------------- */
+
+.boarding-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control{
+    border: 1px solid #d9d9d9;
+    padding: 4px 8px;
+    font-size: 16px;
+    transition: all 0.2 ease;
+}
+
+select, option{
+    cursor: pointer;
+}
+
+
+
+/* ------------------ */
+
+
 
 @media (max-width: 768px) {
     .ticket-info-grid {
@@ -117,6 +140,7 @@
     
     .section-title, .section-header{
         background-color: #d9d9d9;
+        letter-spacing: 1px;
         padding: 6px 8px;
         margin: 0 0 15px 0;
         font-size: 16px;
