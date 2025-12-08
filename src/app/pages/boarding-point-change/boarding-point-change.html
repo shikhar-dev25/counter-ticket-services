@@ -1,81 +1,81 @@
 <div class="details-container">
   <div class="details-section">
 
-    <h2 class="section-title">Ticket Details</h2>
+    <h2 class="section-title">{{translate.translate('ticketDetails')}}</h2>
 
     <div class="ticket-info-grid">
       <div class="info-column">
         <div class="info-row">
-          <span class="label">PNR Number</span>
+          <span class="label">{{translate.translate('pnrNumber')}}</span>
           <span class="value">{{ticket.pnrNumber}}</span>
         </div>
         <div class="info-row">
-          <span class="label">Train Number</span>
+          <span class="label">{{translate.translate('trainNumbers')}}</span>
           <span class="value">{{ticket.trainNumber}}</span>
         </div>
         <div class="info-row">
-          <span class="label">From Station</span>
+          <span class="label">{{translate.translate('fromStation')}}</span>
           <span class="value">NDLS</span>
         </div>
         <div class="info-row">
-          <span class="label">Quota</span>
+          <span class="label">{{translate.translate('quota')}}</span>
           <span class="value">GN</span>
         </div>
         <div class="info-row">
-          <span class="label">Boarding Station</span>
+          <span class="label">{{translate.translate('boardingStation')}}</span>
           <span class="value">NDLS</span>
         </div>
         <div class="info-row">
-          <span class="label">Booking Amount</span>
+          <span class="label">{{translate.translate('boardingAmount')}}</span>
           <span class="value">3100</span>
         </div>
         <div class="info-row">
-          <span class="label">Voucher Amount</span>
+          <span class="label">{{translate.translate('voucherAmount')}}</span>
           <span class="value">0</span>
         </div>
         <div class="info-row">
-          <span class="label">RTC Amount</span>
+          <span class="label">{{translate.translate('rtcAmount')}}</span>
           <span class="value">0</span>
         </div>
       </div>
 
       <div class="info-column">
         <div class="info-row">
-          <span class="label">Journey Date</span>
+          <span class="label">{{translate.translate('journeyDate')}}</span>
           <span class="value">02-12-2025</span>
         </div>
         <div class="info-row">
-          <span class="label">Train Name</span>
+          <span class="label">{{translate.translate('trainName')}}</span>
           <span class="value">SWATANTRTA S EXP</span>
         </div>
         <div class="info-row">
-          <span class="label">To Station</span>
+          <span class="label">{{translate.translate('toStation')}}</span>
           <span class="value">JYG</span>
         </div>
         <div class="info-row">
-          <span class="label">Journey Class</span>
+          <span class="label">{{translate.translate('journeyClass')}}</span>
           <span class="value">3A</span>
         </div>
         <div class="info-row">
-          <span class="label">Reservation Upto</span>
+          <span class="label">{{translate.translate('reservationUpto')}}</span>
           <span class="value">JYG</span>
         </div>
       </div>
     </div>
 
 
-    <h3 class="section-header">Passenger Details</h3>
+    <h3 class="section-header">{{translate.translate('passengerDetails')}}</h3>
      <div class="passenger-details">
             <table class="details-table">
             <thead>
-                <tr>
-                <th>Sl.No</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Booking Status</th>
-                <th>Current Status</th>
-                <th>Select</th>
+              <tr>
+                <th>{{translate.translate('slNo')}}</th>
+                <th>{{translate.translate('name')}}</th>
+                <th>{{translate.translate('age')}}</th>
+                <th>{{translate.translate('gender')}}</th>
+                <th>{{translate.translate('bookingStatus')}}</th>
+                <th>{{translate.translate('currentStatus')}}</th>
+                <th>{{translate.translate('select')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,9 +102,9 @@
      </div>
     
      <div class="boarding-container">
-        <label>New Boarding Point</label>
+        <h2>{{translate.translate('boardingTitle')}}</h2>
           <select class="form-control">
-            <option value="">Select New Boarding Point</option>
+            <option value="">{{translate.translate('selectBoarding')}}</option>
             <option value="NDLS">NDLS - New Delhi</option>
             <option value="AGC">AGC - Agra Cantt</option>
             <option value="CNB">CNB - Kanpur Central</option>
@@ -113,8 +113,8 @@
      </div>
 
     <div class="form-buttons">
-      <button (click)="onSubmit()" class="btn-submit">Submit</button>
-      <button (click)="onBack()" class="btn-back">Back</button>
+      <button (click)="onSubmit()" class="btn-submit">{{translate.translate('submit')}}</button>
+      <button (click)="onBack()" class="btn-back">{{translate.translate('back')}}</button>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { signal } from '@angular/core';
+import { Translation } from '../../services/translation';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,17 @@ import { signal } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header implements OnInit {
+
+  constructor(public translate: Translation) {  // 👈 Inject
+  this.updateDate();
+  this.updateTime();
+  setInterval(() => this.updateTime(), 1000);
+}
+
+switchLanguage(lang: string) {
+  this.translate.switchLanguage(lang);
+}
+
   navDate = signal('');
   navTime = signal('');
 

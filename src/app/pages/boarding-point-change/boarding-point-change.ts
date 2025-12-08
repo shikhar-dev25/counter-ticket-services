@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
+import { Translation } from '../../services/translation';
 
 @Component({
   selector: 'app-boarding-point-change',
@@ -11,8 +12,9 @@ import { Ticket } from '../../services/ticket';
 export class BoardingPointChange {
   constructor (
     private router: Router,
-    public ticket: Ticket
-  ) {console.log('PNR:', this.ticket.pnrNumber);  // 👈 Add this
+    public ticket: Ticket,
+    public translate: Translation
+  ) {console.log('PNR:', this.ticket.pnrNumber);
   console.log('Train:', this.ticket.trainNumber);}
 
   onSubmit() {

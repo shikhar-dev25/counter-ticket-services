@@ -1,17 +1,17 @@
 <div class="ticket-form-container">
   <div class="form-section">
-    <h2 class="form-title">Counter Ticket Cancellation/Boarding Point Change</h2>
+    <h2 class="form-title">{{ translate.translate('pageTitle') }}</h2>
     <div class="form-border">
       <div class="form-group">
-        <label>Transaction Type</label>
-        <select style="cursor: pointer" class="form-control">
-          <option>Cancellation</option>
-          <option>Boarding Point Change</option>
+        <label>{{translate.translate('transactionType')}}</label>
+        <select [(ngModel)]="transactionType" style="cursor: pointer" class="form-control">
+          <option value="Cancellation">{{translate.translate('cancellation')}}</option>
+          <option value="BoardingChange">{{translate.translate('boardingPointChange')}}</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>PNR Number</label>
+        <label>{{translate.translate('pnrNumber')}}</label>
         <input 
           type="text"
           [(ngModel)]="pnrNumber"
@@ -19,12 +19,12 @@
           pattern="[0-9]*" 
           inputmode="numeric" 
           class="form-control" 
-          placeholder="Enter PNR Number" 
+          placeholder="{{translate.translate('enterPnr')}}" 
         />
       </div>
 
       <div class="form-group">
-        <label>Train Number</label>
+        <label>{{translate.translate('trainNumber')}}</label>
         <input 
           type="text"
           [(ngModel)]="trainNumber" 
@@ -32,17 +32,17 @@
           pattern="[0-9]*" 
           inputmode="numeric" 
           class="form-control" 
-          placeholder="Enter Train Number" 
+          placeholder="{{translate.translate('enterTrain')}}" 
         />
       </div>
 
       <div class="form-group">
-        <label>Captcha</label>
-        <input [(ngModel)]="captcha" type="text" class="form-control" placeholder="Enter Captcha" />
+        <label>{{translate.translate('captcha')}}</label>
+        <input [(ngModel)]="captcha" type="text" class="form-control" placeholder="{{translate.translate('enterCaptcha')}}" />
       </div>
       <div class="captcha-container">
-        <div class="captcha-box">EDQ9LC</div>
-        <button style="cursor: pointer">
+        <div class="captcha-box">{{captchaText}}</div>
+        <button (click)="refreshCaptcha()" style="cursor: pointer">
           <img src="assets/refresh.png" alt="" />
         </button>
       </div>
@@ -50,7 +50,7 @@
       <div class="checkbox-group">
         <input [(ngModel)]="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
         <label  for="terms" style="cursor: pointer">
-          I have read cancellation/boarding point change procedure and its rule. </label
+          {{translate.translate('terms')}} </label
         >
         <a href="#procedure-section" style="color: #4456cb; text-decoration: underline"> click to read </a>
       </div>
@@ -60,9 +60,9 @@
         (click)="onSubmit()" 
         [disabled]="!formValid() || !isChecked" 
         class="btn-submit">
-        Submit
+        {{translate.translate('submit')}}
       </button>
-        <button (click)="onReset()" class="btn-reset">Reset</button>
+        <button (click)="onReset()" class="btn-reset">{{translate.translate('reset')}}</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
+import { Translation } from '../../services/translation';
 
 @Component({
   selector: 'app-passenger-details',
@@ -11,8 +12,11 @@ import { Ticket } from '../../services/ticket';
 export class PassengerDetails {
   constructor (
     private router: Router,
-    public ticket: Ticket
+    public ticket: Ticket,
+    public translate: Translation
   ) {}
+
+  iaCancelled = signal(false);
 
   onSubmit() {
     alert("Do you want to process the Cancellation?")
