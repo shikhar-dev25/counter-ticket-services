@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-passenger-details',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './passenger-details.html',
   styleUrl: './passenger-details.css',
 })
@@ -16,10 +17,22 @@ export class PassengerDetails {
     public translate: Translation
   ) {}
 
-  iaCancelled = signal(false);
+  isCancelled = signal(false);
+  isChecked = false;
 
-  onSubmit() {
-    alert("Do you want to process the Cancellation?")
+  onCancelTicket() {
+    if(!this.isChecked){
+      alert("Please select the ticket")
+    } else {
+      if (confirm(this.translate.translate('cancelTicket') + '?')) {
+      this.isCancelled.set(true);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  onPrint() {
+    window.print();
   }
 
   onBack() {

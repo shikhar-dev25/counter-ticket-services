@@ -56,14 +56,18 @@ export class Translation {
   //boarding point
   boardingTitle: 'New Boarding Point',
   selectBoarding: 'Select New Boarding Point',
+  successMessage: 'Boarding point has been successfully changed.',
+  changeBoardingPoint: "Do you want to change the boarding point",
+  
 
   //procedure panel
   procedureTitle: 'Counter Ticket Cancellation Procedure',
   rulesTitle: 'Counter Ticket Cancellation Rules',
 
   //after cancellation
-  cancellationSuccess: 'Ticket has been successfully cancelled. Please deposit the original ticket and collect your refund from journey commencing station or nearby satellite PRS counter within prescribed notified time. Refund amount may change at the time of surrendering of ticket as per cancelation location.',
+  cancellationSuccess: 'Ticket has been successfully cancelled. Please deposit the original ticket and collect your refund from journey commencing station or nearby satellite PRS counter within prescribed notified time. Refund amount may change at the time of surrendering of ticket as per cancellation location.',
   printTicket: 'Print',
+  cancelTicket: 'Do you want to cancel the ticket',
 
   proc1: 'Enter PNR Number, Train number along with Captcha.',
   proc2: 'Select check box to confirm that rules and procedure are read.',
@@ -138,10 +142,12 @@ export class Translation {
   //Boarding point 
   selectBoarding: 'नया बोर्डिंग पॉइंट चुनें',
   boardingTitle: 'नया बोर्डिंग पॉइंट',
-
+  successMessage: 'बोर्डिंग पॉइंट सफलतापूर्वक बदल दिया गया है।',
+  changeBoardingPoint: "क्या आप बोर्डिंग पॉइंट बदलना चाहते हैं?",  
   //after cancellation
   cancellationSuccess: 'टिकट सफलतापूर्वक रद्द कर दिया गया है। कृपया निर्धारित समय सीमा के भीतर यात्रा प्रारंभ स्टेशन या निकटतम सैटेलाइट पीआरएस काउंटर से मूल टिकट जमा करें और धनवापसी एकत्र करें। रद्दीकरण स्थान के अनुसार टिकट जमा करने के समय धनवापसी राशि बदल सकती है|',
   printTicket: 'प्रिंट करें',
+  cancelTicket: 'क्या आप टिकट रद्द करना चाहते हैं',
     
   //procedure panel
   procedureTitle: 'काउंटर टिकट रद्दीकरण प्रक्रिया',

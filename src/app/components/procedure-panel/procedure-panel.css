@@ -57,3 +57,8 @@
   }
 }
 
+@media print{
+  *{
+    visibility: hidden;
+  }
+}

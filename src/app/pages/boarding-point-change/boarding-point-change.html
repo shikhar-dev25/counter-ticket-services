@@ -1,6 +1,10 @@
 <div class="details-container">
   <div class="details-section">
-
+    @if (isChanged()) {
+      <div class="success-message">
+        {{ translate.translate('successMessage') }}
+      </div>
+    }
     <h2 class="section-title">{{translate.translate('ticketDetails')}}</h2>
 
     <div class="ticket-info-grid">
@@ -10,33 +14,33 @@
           <span class="value">{{ticket.pnrNumber}}</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('trainNumbers')}}</span>
+          <span class="label">{{translate.translate('trainNumber')}}</span>
           <span class="value">{{ticket.trainNumber}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('fromStation')}}</span>
           <span class="value">NDLS</span>
         </div>
-        <div class="info-row">
+        @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('quota')}}</span>
           <span class="value">GN</span>
-        </div>
+        </div>}
         <div class="info-row">
-          <span class="label">{{translate.translate('boardingStation')}}</span>
-          <span class="value">NDLS</span>
+          <span class="label">{{!isChanged() ? translate.translate('boardingStation') : translate.translate('boardingTitle')}}</span>
+          <span style="font-weight: 700; color: #000000;" class="value">{{!isChanged() ? "NDLS" : newBoardingPoint}}</span>
         </div>
-        <div class="info-row">
-          <span class="label">{{translate.translate('boardingAmount')}}</span>
+        @if (!isChanged()){<div class="info-row">
+          <span class="label">{{translate.translate('bookingAmount')}}</span>
           <span class="value">3100</span>
-        </div>
-        <div class="info-row">
+        </div>}
+        @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('voucherAmount')}}</span>
           <span class="value">0</span>
-        </div>
-        <div class="info-row">
+        </div>}
+        @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('rtcAmount')}}</span>
           <span class="value">0</span>
-        </div>
+        </div>}
       </div>
 
       <div class="info-column">
@@ -56,14 +60,14 @@
           <span class="label">{{translate.translate('journeyClass')}}</span>
           <span class="value">3A</span>
         </div>
-        <div class="info-row">
+        @if (!isChanged()) {<div class="info-row">
           <span class="label">{{translate.translate('reservationUpto')}}</span>
           <span class="value">JYG</span>
-        </div>
+        </div>}
       </div>
     </div>
 
-
+    @if (!isChanged()){
     <h3 class="section-header">{{translate.translate('passengerDetails')}}</h3>
      <div class="passenger-details">
             <table class="details-table">
@@ -86,7 +90,7 @@
                 <td>M</td>
                 <td>CNF/B4/9</td>
                 <td>CNF/</td>
-                <td><input type="checkbox"></td>
+                <td><input [(ngModel)]="isChecked" type="checkbox"></td>
                 </tr>
                 <tr>
                 <td>2</td>
@@ -95,26 +99,37 @@
                 <td>M</td>
                 <td>CNF/B4/10</td>
                 <td>CNF/</td>
-                <td><input type="checkbox"></td>
+                <td><input [(ngModel)]="isChecked" type="checkbox"></td>
                 </tr>
             </tbody>
             </table>
-     </div>
+     </div>}
     
-     <div class="boarding-container">
+     @if (!isChanged()){<div class="boarding-container">
         <h2>{{translate.translate('boardingTitle')}}</h2>
-          <select class="form-control">
+          <select [(ngModel)]="newBoardingPoint" class="form-control">
             <option value="">{{translate.translate('selectBoarding')}}</option>
             <option value="NDLS">NDLS - New Delhi</option>
             <option value="AGC">AGC - Agra Cantt</option>
             <option value="CNB">CNB - Kanpur Central</option>
             <option value="LKO">LKO - Lucknow</option>
           </select>
-     </div>
+     </div>}
 
+    
     <div class="form-buttons">
-      <button (click)="onSubmit()" class="btn-submit">{{translate.translate('submit')}}</button>
-      <button (click)="onBack()" class="btn-back">{{translate.translate('back')}}</button>
-    </div>
+        @if (!isChanged()) {
+          <button class="btn-submit" [disabled]="!isSelected()" (click)="onSubmit()">
+            {{ translate.translate('submit') }}
+          </button>
+        } @else {
+          <button class="btn-print" (click)="onPrint()">
+            {{ translate.translate('printTicket') }}
+          </button>
+        }
+        <button class="btn-reset" (click)="onBack()">
+          {{ translate.translate('back') }}
+        </button>  
+    
   </div>
 </div>

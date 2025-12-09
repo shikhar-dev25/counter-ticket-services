@@ -109,3 +109,10 @@
 		width: 100%;
 	}
 }
+
+
+@media print {
+	*{
+		visibility: hidden !important;
+	}
+}

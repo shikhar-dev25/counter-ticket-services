@@ -10,6 +10,15 @@
     background-color: #fff;
 }
 
+.success-message {
+    border: 1px solid #d9d9d9;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: #67a141;
+    font-weight: 500;
+}
+
 .section-title, .section-header{
   background-color: #d9d9d9;
   padding: 12px 15px;
@@ -147,4 +156,58 @@
     .form-buttons button {
         width: 100%;
     }
+}
+
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .details-section,
+  .details-section * {
+    visibility: visible;
+  }
+
+  .details-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .form-buttons {
+    display: none !important;
+  }
+
+  .details-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .details-section {
+    border: 1px solid #333;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  .details-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .details-table th,
+  .details-table td {
+    border: 1px solid #333;
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .success-message {
+    background-color: transparent !important;
+    border: 1px solid #333 !important;
+    color: #67a141 !important;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
 }

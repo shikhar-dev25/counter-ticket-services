@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-boarding-point-change',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './boarding-point-change.html',
   styleUrl: './boarding-point-change.css',
 })
@@ -17,8 +18,27 @@ export class BoardingPointChange {
   ) {console.log('PNR:', this.ticket.pnrNumber);
   console.log('Train:', this.ticket.trainNumber);}
 
+  
+  isChanged = signal(false); 
+  newBoardingPoint = "";
+  isChecked = false;
+
+  isSelected() {
+    return this.newBoardingPoint !== ""
+  }
   onSubmit() {
-    alert("Do you want to change the boarding point?")
+    if(!this.isChecked) {
+      alert("Please select the ticket")
+    } else {
+      if (confirm(this.translate.translate('changeBoardingPoint') + '?')) {
+      this.isChanged.set(true);
+      }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    } 
+    }
+    
+  onPrint() {
+    window.print();
   }
 
   onBack() {

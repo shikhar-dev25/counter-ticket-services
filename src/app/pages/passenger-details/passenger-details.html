@@ -1,110 +1,127 @@
 <div class="details-container">
   <div class="details-section">
+    @if (isCancelled()) {
+    <div class="success-message">
+      {{ translate.translate('cancellationSuccess') }}
+    </div>
+    }
 
-    <h2 class="section-title">{{translate.translate('ticketDetails')}}</h2>
+    <h2 class="section-title">{{ translate.translate('ticketDetails') }}</h2>
 
     <div class="ticket-info-grid">
       <div class="info-column">
         <div class="info-row">
-          <span class="label">{{translate.translate('pnrNumber')}}</span>
-          <span class="value">{{ticket.pnrNumber}}</span>
+          <span class="label">{{ translate.translate('pnrNumber') }}</span>
+          <span class="value">{{ ticket.pnrNumber }}</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('trainNumber')}}</span>
-          <span class="value">{{ticket.trainNumber}}</span>
+          <span class="label">{{ translate.translate('trainNumber') }}</span>
+          <span class="value">{{ ticket.trainNumber }}</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('fromStation')}}</span>
+          <span class="label">{{ translate.translate('fromStation') }}</span>
           <span class="value">NDLS</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('quota')}}</span>
+          <span class="label">{{ translate.translate('quota') }}</span>
           <span class="value">GN</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('boardingStation')}}</span>
+          <span class="label">{{ translate.translate('boardingStation') }}</span>
           <span class="value">NDLS</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('bookingAmount')}}</span>
+          <span class="label">{{ translate.translate('bookingAmount') }}</span>
           <span class="value">3100</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('voucherAmount')}}</span>
+          <span class="label">{{ translate.translate('voucherAmount') }}</span>
           <span class="value">0</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('rtcAmount')}}</span>
+          <span class="label">{{ translate.translate('rtcAmount') }}</span>
           <span class="value">0</span>
         </div>
       </div>
 
       <div class="info-column">
         <div class="info-row">
-          <span class="label">{{translate.translate('journeyDate')}}</span>
+          <span class="label">{{ translate.translate('journeyDate') }}</span>
           <span class="value">02-12-2025</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('trainName')}}</span>
+          <span class="label">{{ translate.translate('trainName') }}</span>
           <span class="value">SWATANTRTA S EXP</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('toStation')}}</span>
+          <span class="label">{{ translate.translate('toStation') }}</span>
           <span class="value">JYG</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('journeyClass')}}</span>
+          <span class="label">{{ translate.translate('journeyClass') }}</span>
           <span class="value">3A</span>
         </div>
         <div class="info-row">
-          <span class="label">{{translate.translate('reservationUpto')}}</span>
+          <span class="label">{{ translate.translate('reservationUpto') }}</span>
           <span class="value">JYG</span>
         </div>
       </div>
     </div>
 
-
-    <h3 class="section-header">{{translate.translate('passengerDetails')}}</h3>
-     <div class="passenger-details">
-            <table class="details-table">
-            <thead>
-                <tr>
-                <th>{{translate.translate('slNo')}}</th>
-                <th>{{translate.translate('name')}}</th>
-                <th>{{translate.translate('age')}}</th>
-                <th>{{translate.translate('gender')}}</th>
-                <th>{{translate.translate('bookingStatus')}}</th>
-                <th>{{translate.translate('currentStatus')}}</th>
-                <th>{{translate.translate('select')}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>1</td>
-                <td>RRRRR</td>
-                <td>23</td>
-                <td>M</td>
-                <td>CNF/B4/9</td>
-                <td>CNF/</td>
-                <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>HHHH</td>
-                <td>32</td>
-                <td>M</td>
-                <td>CNF/B4/10</td>
-                <td>CNF/</td>
-                <td><input type="checkbox"></td>
-                </tr>
-            </tbody>
-            </table>
-     </div>
-    
+    <h3 class="section-header">{{ translate.translate('passengerDetails') }}</h3>
+    <div class="passenger-details">
+      <table class="details-table">
+        <thead>
+          <tr>
+            <th>{{ translate.translate('slNo') }}</th>
+            <th>{{ translate.translate('name') }}</th>
+            <th>{{ translate.translate('age') }}</th>
+            <th>{{ translate.translate('gender') }}</th>
+            <th>{{ translate.translate('bookingStatus') }}</th>
+            <th>{{ translate.translate('currentStatus') }}</th>
+            @if (!isCancelled()){<th>{{ translate.translate('select') }}</th>}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>RRRRR</td>
+            <td>23</td>
+            <td>M</td>
+            <td>CNF/B4/9</td>
+            <td>{{ isCancelled() ? "CAN/" : "CNF/" }}</td>
+            @if (!isCancelled()) {
+            <td><input [(ngModel)]="isChecked" type="checkbox" /></td>
+            }
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>HHHH</td>
+            <td>32</td>
+            <td>M</td>
+            <td>CNF/B4/10</td>
+            <td>{{ isCancelled() ? "CAN/" : "CNF/" }}</td>
+            @if (!isCancelled()) {
+            <td><input type="checkbox" /></td>
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="form-buttons">
-      <button (click)="onSubmit()" class="btn-submit">{{translate.translate('submit')}}</button>
-      <button (click)="onBack()" class="btn-back">{{translate.translate('back')}}</button>
+      @if (!isCancelled()) {
+      <button (click)="onCancelTicket()" class="btn-submit">
+        {{ translate.translate('submit') }}
+      </button>
+      } @else {
+      <button class="btn-print" (click)="onPrint()">
+        {{ translate.translate('printTicket') }}
+      </button>
+      }
+      <button (click)="onBack()" class="btn-back">
+        {{ translate.translate('back') }}
+      </button>
     </div>
   </div>
 </div>
