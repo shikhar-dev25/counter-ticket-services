@@ -58,7 +58,7 @@ export class Translation {
   selectBoarding: 'Select New Boarding Point',
   successMessage: 'Boarding point has been successfully changed.',
   changeBoardingPoint: "Do you want to change the boarding point",
-  
+
 
   //procedure panel
   procedureTitle: 'Counter Ticket Cancellation Procedure',
@@ -79,7 +79,7 @@ export class Translation {
   proc7: 'For tickets cancelled (including return journey tickets) up to 4 hours for the confirmed tickets and up to thirty minutes for RAC/waitlisted tickets before the scheduled departure time as prescribed in the refund rules and changes made from time to time: Collection of Refund of cancelled PRS counter tickets through IRCTC website or 139 is permitted from any PRS counters of Indian Railways by surrendering original journey ticket. Collection of refund amount beyond this time limit is permitted at journey commencing station or nearby satellite PRS locations identified by Zonal Railways. Please check the convenience of collecting refund from journey commencing station before cancelling your ticket.',
   proc7a: 'During first two hours of the opening of PRS counters on the next day for the tickets for the trains whose scheduled departure time is (i) between 1801 hours and 0600 hours.',
   proc7b: 'Upto 4 hours after the scheduled departure of the train during the working hours of PRS counters/current counters/special counters where cancellation is permitted round the clock on the tickets for the trains whose scheduled departure time is (i) between 0601 hours and 1800 hours.',
-  
+
   rule1: 'This may be applicable only in case valid mobile number has been given at the time of booking.',
   rule2: 'Cancellation of tickets and refund of fare may be permitted for PRS counter tickets in normal circumstances only and not in case of late running of trains/cancellation of train etc.',
   rule3: 'Online cancellation shall be permitted only upto 4 hours before the scheduled departure of the train if ticket is fully confirmed.',
@@ -139,16 +139,16 @@ export class Translation {
   select: 'चयन करें',
   trainName: 'ट्रेन का नाम',
 
-  //Boarding point 
+  //Boarding point
   selectBoarding: 'नया बोर्डिंग पॉइंट चुनें',
   boardingTitle: 'नया बोर्डिंग पॉइंट',
   successMessage: 'बोर्डिंग पॉइंट सफलतापूर्वक बदल दिया गया है।',
-  changeBoardingPoint: "क्या आप बोर्डिंग पॉइंट बदलना चाहते हैं?",  
+  changeBoardingPoint: "क्या आप बोर्डिंग पॉइंट बदलना चाहते हैं?",
   //after cancellation
   cancellationSuccess: 'टिकट सफलतापूर्वक रद्द कर दिया गया है। कृपया निर्धारित समय सीमा के भीतर यात्रा प्रारंभ स्टेशन या निकटतम सैटेलाइट पीआरएस काउंटर से मूल टिकट जमा करें और धनवापसी एकत्र करें। रद्दीकरण स्थान के अनुसार टिकट जमा करने के समय धनवापसी राशि बदल सकती है|',
   printTicket: 'प्रिंट करें',
   cancelTicket: 'क्या आप टिकट रद्द करना चाहते हैं',
-    
+
   //procedure panel
   procedureTitle: 'काउंटर टिकट रद्दीकरण प्रक्रिया',
   rulesTitle: 'काउंटर टिकट रद्दीकरण नियम',
@@ -163,7 +163,7 @@ export class Translation {
   proc7: 'पुष्टिकृत टिकटों के लिए निर्धारित प्रस्थान समय से 4 घंटे पहले तक और आरएसी/प्रतीक्षा सूची टिकटों के लिए तीस मिनट पहले तक रद्द किए गए टिकटों (वापसी यात्रा टिकट सहित) के लिए धनवापसी नियमों में निर्धारित अनुसार और समय-समय पर किए गए परिवर्तनों के अनुसार: आईआरसीटीसी वेबसाइट या 139 के माध्यम से रद्द किए गए पीआरएस काउंटर टिकटों की धनवापसी मूल यात्रा टिकट जमा करके भारतीय रेलवे के किसी भी पीआरएस काउंटर से एकत्र की जा सकती है। इस समय सीमा के बाद धनवापसी राशि का संग्रह यात्रा प्रारंभ स्टेशन या क्षेत्रीय रेलवे द्वारा चिह्नित निकटतम सैटेलाइट पीआरएस स्थानों से अनुमत है। कृपया अपना टिकट रद्द करने से पहले यात्रा प्रारंभ स्टेशन से धनवापसी एकत्र करने की सुविधा की जांच करें।',
   proc7a: 'अगले दिन पीआरएस काउंटरों के खुलने के पहले दो घंटों के दौरान उन ट्रेनों के टिकटों के लिए जिनका निर्धारित प्रस्थान समय (i) 1801 घंटे और 0600 घंटे के बीच है।',
   proc7b: 'ट्रेन के निर्धारित प्रस्थान के 4 घंटे बाद तक पीआरएस काउंटरों/वर्तमान काउंटरों/विशेष काउंटरों के कार्य समय के दौरान जहां उन ट्रेनों के टिकटों पर चौबीसों घंटे रद्दीकरण की अनुमति है जिनका निर्धारित प्रस्थान समय (i) 0601 घंटे और 1800 घंटे के बीच है।',
-  
+
   rule1: 'यह केवल तभी लागू हो सकता है जब बुकिंग के समय वैध मोबाइल नंबर दिया गया हो।',
   rule2: 'केवल सामान्य परिस्थितियों में पीआरएस काउंटर टिकटों के लिए टिकट रद्द करने और किराए की धनवापसी की अनुमति दी जा सकती है और ट्रेनों के देर से चलने/ट्रेन रद्द होने आदि के मामले में नहीं।',
   rule3: 'यदि टिकट पूरी तरह से पुष्टिकृत है तो ट्रेन के निर्धारित प्रस्थान से केवल 4 घंटे पहले तक ऑनलाइन रद्दीकरण की अनुमति दी जाएगी।',
