@@ -146,7 +146,7 @@ select, option{
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .section-title, .section-header{
         background-color: #d9d9d9;
         letter-spacing: 1px;

@@ -26,7 +26,7 @@ export class OtpVerification {
   onSubmit() {
     if(this.ticket.transactionType === "Cancellation") {
       this.router.navigate(['/passenger-details'])
-    } 
+    }
     if(this.ticket.transactionType === "BoardingChange") {
       this.router.navigate(['/boarding-point-change'])
     }
@@ -38,6 +38,6 @@ export class OtpVerification {
 
   onResend() {
     this.otp = "";
-    
+
   }
 }

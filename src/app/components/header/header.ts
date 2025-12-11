@@ -10,7 +10,7 @@ import { Translation } from '../../services/translation';
 })
 export class Header implements OnInit {
 
-  constructor(public translate: Translation) {  // 👈 Inject
+  constructor(public translate: Translation) {
   this.updateDate();
   this.updateTime();
   setInterval(() => this.updateTime(), 1000);

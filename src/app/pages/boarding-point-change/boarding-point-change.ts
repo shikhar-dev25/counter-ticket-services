@@ -18,14 +18,15 @@ export class BoardingPointChange {
   ) {console.log('PNR:', this.ticket.pnrNumber);
   console.log('Train:', this.ticket.trainNumber);}
 
-  
-  isChanged = signal(false); 
+
+  isChanged = signal(false);
   newBoardingPoint = "";
   isChecked = false;
 
   isSelected() {
     return this.newBoardingPoint !== ""
   }
+
   onSubmit() {
     if(!this.isChecked) {
       alert("Please select the ticket")
@@ -34,9 +35,9 @@ export class BoardingPointChange {
       this.isChanged.set(true);
       }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    } 
     }
-    
+    }
+
   onPrint() {
     window.print();
   }

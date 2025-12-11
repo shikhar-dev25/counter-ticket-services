@@ -15,7 +15,7 @@ export class TicketForm {
     public ticket: Ticket,
     public translate: Translation
   ) { this.captchaGenerator()}
-  
+
   pnrNumber = "";
   trainNumber = "";
   captcha = "";
@@ -24,7 +24,7 @@ export class TicketForm {
   transactionType: string = "Cancellation";
 
   captchaGenerator() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz123456789';
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789abcdefghijkmnpqrstuvwxyz123456789';
     let captcha = '';
     for (let i = 0; i < 6; i++) {
     captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -38,11 +38,11 @@ export class TicketForm {
   formValid() {
     return this.pnrNumber !== "" && this.captcha !== "" && this.trainNumber !== "" && this.isChecked;
   }
-  
+
 
 
   onSubmit() {
-    
+
     if (this.formValid() ){
       if(this.captcha !== this.captchaText) {
         alert("Wrong Captcha!")
@@ -55,7 +55,7 @@ export class TicketForm {
       this.router.navigate(['/otp'])
     }
   }
-  
+
   onReset() {
     this.pnrNumber = "";
     this.trainNumber = "";

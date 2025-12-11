@@ -15,11 +15,11 @@ export class Ticket {
 
   constructor() {}
 
-  clearDate() {
-    this.pnrNumber = "";
-    this.trainNumber = "";
-    this.transactionType = "";
-    this.otp = "";
+  // clearDate() {
+  //   this.pnrNumber = "";
+  //   this.trainNumber = "";
+  //   this.transactionType = "";
+  //   this.otp = "";
 
-  }
+  // }
 }

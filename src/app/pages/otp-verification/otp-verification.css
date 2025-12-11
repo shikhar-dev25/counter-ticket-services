@@ -84,7 +84,7 @@
 
 
 @media (max-width: 768px){
-    
+
     .otp-container{
         flex-direction: column;
         gap: 20px;
