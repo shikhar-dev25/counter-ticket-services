@@ -90,7 +90,7 @@
                 <td>M</td>
                 <td>CNF/B4/9</td>
                 <td>CNF/</td>
-                <td><input [(ngModel)]="isChecked" type="checkbox"></td>
+                <td><input [formControl]="isChecked" type="checkbox"></td>
                 </tr>
                 <tr>
                 <td>2</td>
@@ -99,15 +99,15 @@
                 <td>M</td>
                 <td>CNF/B4/10</td>
                 <td>CNF/</td>
-                <td><input [(ngModel)]="isChecked" type="checkbox"></td>
+                <td><input [formControl]="isChecked" type="checkbox"></td>
                 </tr>
             </tbody>
             </table>
      </div>}
-    
+
      @if (!isChanged()){<div class="boarding-container">
         <h2>{{translate.translate('boardingTitle')}}</h2>
-          <select [(ngModel)]="newBoardingPoint" class="form-control">
+          <select [formControl]="newBoardingPoint" class="form-control">
             <option value="">{{translate.translate('selectBoarding')}}</option>
             <option value="NDLS">NDLS - New Delhi</option>
             <option value="AGC">AGC - Agra Cantt</option>
@@ -116,7 +116,7 @@
           </select>
      </div>}
 
-    
+
     <div class="form-buttons">
         @if (!isChanged()) {
           <button class="btn-submit" [disabled]="!isSelected()" (click)="onSubmit()">
@@ -129,7 +129,7 @@
         }
         <button class="btn-reset" (click)="onBack()">
           {{ translate.translate('back') }}
-        </button>  
-    
+        </button>
+
   </div>
 </div>

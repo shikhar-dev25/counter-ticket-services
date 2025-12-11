@@ -2,11 +2,11 @@ import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-boarding-point-change',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './boarding-point-change.html',
   styleUrl: './boarding-point-change.css',
 })
@@ -20,11 +20,11 @@ export class BoardingPointChange {
 
 
   isChanged = signal(false);
-  newBoardingPoint = "";
-  isChecked = false;
+  newBoardingPoint = new FormControl('', Validators.required);
+  isChecked = new FormControl(false);
 
   isSelected() {
-    return this.newBoardingPoint !== ""
+    return this.newBoardingPoint.value !== ""
   }
 
   onSubmit() {

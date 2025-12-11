@@ -2,11 +2,11 @@ import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-passenger-details',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './passenger-details.html',
   styleUrl: './passenger-details.css',
 })
@@ -18,16 +18,28 @@ export class PassengerDetails {
   ) {}
 
   isCancelled = signal(false);
-  isChecked = false;
+  passenger1selected = new FormControl(false);
+  passenger2selected = new FormControl(false);
+  passenger1cancelled = signal(false);
+  passenger2cancelled = signal(false);
 
   onCancelTicket() {
-    if(!this.isChecked){
-      alert("Please select the ticket")
-    } else {
-      if (confirm(this.translate.translate('cancelTicket') + '?')) {
-      this.isCancelled.set(true);
+    if(!this.passenger1selected.value && !this.passenger2selected.value){
+      alert("Please select at least ticket");
+      return;
+    }
+
+    if(confirm(this.translate.translate('cancelTicket') + "?")){
+      if(this.passenger1selected.value) {
+        this.passenger1cancelled.set(true);
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if(this.passenger2selected.value) {
+        this.passenger2cancelled.set(true);
+      }
+
+      if(this.passenger1cancelled() && this.passenger2cancelled() ) {
+        this.isCancelled.set(true);
+      }
     }
   }
 

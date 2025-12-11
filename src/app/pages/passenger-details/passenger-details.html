@@ -1,6 +1,6 @@
 <div class="details-container">
   <div class="details-section">
-    @if (isCancelled()) {
+    @if (passenger1cancelled() || passenger2cancelled()) {
     <div class="success-message">
       {{ translate.translate('cancellationSuccess') }}
     </div>
@@ -79,7 +79,9 @@
             <th>{{ translate.translate('gender') }}</th>
             <th>{{ translate.translate('bookingStatus') }}</th>
             <th>{{ translate.translate('currentStatus') }}</th>
-            @if (!isCancelled()){<th>{{ translate.translate('select') }}</th>}
+            @if (!isCancelled()){
+            <th>{{ translate.translate('select') }}</th>
+            }
           </tr>
         </thead>
         <tbody>
@@ -89,9 +91,9 @@
             <td>23</td>
             <td>M</td>
             <td>CNF/B4/9</td>
-            <td>{{ isCancelled() ? "CAN/" : "CNF/" }}</td>
-            @if (!isCancelled()) {
-            <td><input [(ngModel)]="isChecked" type="checkbox" /></td>
+            <td>{{ passenger1cancelled() ? 'CAN/' : 'CNF/' }}</td>
+            @if (!passenger1cancelled()) {
+            <td><input [formControl]="passenger1selected" type="checkbox" /></td>
             }
           </tr>
           <tr>
@@ -100,9 +102,10 @@
             <td>32</td>
             <td>M</td>
             <td>CNF/B4/10</td>
-            <td>{{ isCancelled() ? "CAN/" : "CNF/" }}</td>
-            @if (!isCancelled()) {
-            <td><input type="checkbox" /></td>
+            <td>{{ passenger2cancelled() ? 'CAN/' : 'CNF/' }}</td>
+            @if (!passenger2cancelled()) {
+            <td><input [formControl]="passenger2selected" type="checkbox" /></td>
+
             }
           </tr>
         </tbody>
@@ -111,10 +114,10 @@
 
     <div class="form-buttons">
       @if (!isCancelled()) {
-      <button (click)="onCancelTicket()" class="btn-submit">
+      <button [disabled]="passenger1cancelled() && passenger2cancelled()" (click)="onCancelTicket()" class="btn-submit">
         {{ translate.translate('submit') }}
       </button>
-      } @else {
+      } @if(passenger1cancelled() || passenger2cancelled()) {
       <button class="btn-print" (click)="onPrint()">
         {{ translate.translate('printTicket') }}
       </button>

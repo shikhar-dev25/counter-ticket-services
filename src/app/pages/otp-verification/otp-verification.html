@@ -16,7 +16,7 @@
         <div class="form-group">
             <label>{{translate.translate('enterOtp')}}</label>
             <div  style="display: flex; gap: 10px; align-items: center;">
-            <input [(ngModel)]="otp" maxlength="6" inputmode="numeric" type="text" class="form-control" placeholder="{{translate.translate('enterOtp')}}" maxlength="6" style="flex: 1;">
+            <input [formControl]="otp" maxlength="6" inputmode="numeric" type="text" class="form-control" placeholder="{{translate.translate('enterOtp')}}" maxlength="6" style="flex: 1;">
             <button (click)="onResend()" class="btn-resend">{{translate.translate('resend')}}</button>
             </div>
         </div>

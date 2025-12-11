@@ -4,7 +4,7 @@
     <div class="form-border">
       <div class="form-group">
         <label>{{translate.translate('transactionType')}}</label>
-        <select [(ngModel)]="transactionType" style="cursor: pointer" class="form-control">
+        <select [formControl]="transactionType" style="cursor: pointer" class="form-control">
           <option value="Cancellation">{{translate.translate('cancellation')}}</option>
           <option value="BoardingChange">{{translate.translate('boardingChange')}}</option>
         </select>
@@ -14,7 +14,7 @@
         <label>{{translate.translate('pnrNumber')}}</label>
         <input
           type="text"
-          [(ngModel)]="pnrNumber"
+          [formControl]="pnrNumber"
           maxlength="10"
 
           pattern="[0-9]*"
@@ -28,7 +28,7 @@
         <label>{{translate.translate('trainNumber')}}</label>
         <input
           type="text"
-          [(ngModel)]="trainNumber"
+          [formControl]="trainNumber"
           maxlength="5"
           pattern="[0-9]*"
           inputmode="numeric"
@@ -39,7 +39,7 @@
 
       <div class="form-group">
         <label>{{translate.translate('captcha')}}</label>
-        <input [(ngModel)]="captcha" type="text" class="form-control" placeholder="{{translate.translate('enterCaptcha')}}" />
+        <input [formControl]="captcha" type="text" class="form-control" placeholder="{{translate.translate('enterCaptcha')}}" />
       </div>
       <div class="captcha-container">
         <div class="captcha-box">{{captchaText}}</div>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="checkbox-group">
-        <input [(ngModel)]="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
+        <input [formControl]="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
         <label  for="terms" style="cursor: pointer">
           {{translate.translate('terms')}} </label
         >

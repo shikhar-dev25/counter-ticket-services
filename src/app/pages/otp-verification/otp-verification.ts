@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, Validators  } from '@angular/forms';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
 
 @Component({
   selector: 'app-otp-verification',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './otp-verification.html',
   styleUrl: './otp-verification.css',
 })
@@ -17,10 +18,10 @@ export class OtpVerification {
     public translate: Translation
   ) {}
 
-  otp = "";
+  otp = new FormControl('', Validators.required);
 
   formValid() {
-    return this.otp.length === 6;
+    return this.otp.value?.length === 6;
   }
 
   onSubmit() {
@@ -37,7 +38,6 @@ export class OtpVerification {
   }
 
   onResend() {
-    this.otp = "";
-
+    this.otp.setValue("");
   }
 }
