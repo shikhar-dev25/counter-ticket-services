@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
 @Component({
   selector: 'app-ticket-form',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './ticket-form.html',
   styleUrl: './ticket-form.css',
 })
@@ -16,12 +16,15 @@ export class TicketForm {
     public translate: Translation
   ) { this.captchaGenerator()}
 
-  pnrNumber = "";
-  trainNumber = "";
-  captcha = "";
-  isChecked = false;
   captchaText = "";
-  transactionType: string = "Cancellation";
+  ticketForm = new FormGroup({
+    transactionType: new FormControl('Cancellation', Validators.required),
+    pnrNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+    trainNumber: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]),
+    captcha: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]),
+    isChecked: new FormControl(false, Validators.requiredTrue)
+  })
+
 
   captchaGenerator() {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789abcdefghijkmnpqrstuvwxyz123456789';
@@ -34,31 +37,44 @@ export class TicketForm {
 
   refreshCaptcha() {
     this.captchaGenerator();
+    this.ticketForm.get('captcha')?.reset();
   }
-  formValid() {
-    return this.pnrNumber !== "" && this.captcha !== "" && this.trainNumber !== "" && this.isChecked;
-  }
+
+
 
 
 
   onSubmit() {
-
-    if (this.formValid() ){
-      if(this.captcha !== this.captchaText) {
-        alert("Wrong Captcha!")
-        return;
-      }
-      this.ticket.pnrNumber = this.pnrNumber;
-      this.ticket.trainNumber = this.trainNumber;
-      this.ticket.transactionType = this.transactionType;
-
-      this.router.navigate(['/otp'])
+    // Check if form is valid
+    if (this.ticketForm.invalid) {
+      // Mark all fields as touched to show validation errors
+      this.ticketForm.markAllAsTouched();
+      return;
     }
+
+    // Get form values
+    const formValues = this.ticketForm.value;
+
+    // Validate captcha
+    if (formValues.captcha !== this.captchaText) {
+      alert("Wrong Captcha!");
+      this.refreshCaptcha();
+      return;
+    }
+
+    // Store in service
+    this.ticket.pnrNumber = formValues.pnrNumber!;
+    this.ticket.trainNumber = formValues.trainNumber!;
+    this.ticket.transactionType = formValues.transactionType!;
+
+    // Navigate to OTP page
+    this.router.navigate(['/otp']);
   }
 
   onReset() {
-    this.pnrNumber = "";
-    this.trainNumber = "";
-    this.captcha = "";
+    this.ticketForm.reset({
+      transactionType: 'Cancellation'
+    });
+    this.refreshCaptcha();
   }
 }

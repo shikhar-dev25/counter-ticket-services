@@ -80,7 +80,7 @@
             <th>{{ translate.translate('bookingStatus') }}</th>
             <th>{{ translate.translate('currentStatus') }}</th>
             @if (!isCancelled()){
-            <th>{{ translate.translate('select') }}</th>
+            <th class="select-column">{{ translate.translate('select') }}</th>
             }
           </tr>
         </thead>
@@ -93,7 +93,7 @@
             <td>CNF/B4/9</td>
             <td>{{ passenger1cancelled() ? 'CAN/' : 'CNF/' }}</td>
             @if (!passenger1cancelled()) {
-            <td><input [formControl]="passenger1selected" type="checkbox" /></td>
+            <td><input class="check-box" [formControl]="passenger1selected" type="checkbox" /></td>
             }
           </tr>
           <tr>
@@ -104,7 +104,7 @@
             <td>CNF/B4/10</td>
             <td>{{ passenger2cancelled() ? 'CAN/' : 'CNF/' }}</td>
             @if (!passenger2cancelled()) {
-            <td><input [formControl]="passenger2selected" type="checkbox" /></td>
+            <td><input class="check-box" [formControl]="passenger2selected" type="checkbox" /></td>
 
             }
           </tr>

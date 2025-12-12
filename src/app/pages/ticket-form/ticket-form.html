@@ -1,10 +1,11 @@
 <div class="ticket-form-container">
   <div class="form-section">
     <h2 class="form-title">{{ translate.translate('pageTitle') }}</h2>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
     <div class="form-border">
       <div class="form-group">
         <label>{{translate.translate('transactionType')}}</label>
-        <select [formControl]="transactionType" style="cursor: pointer" class="form-control">
+        <select formControlName="transactionType" style="cursor: pointer" class="form-control">
           <option value="Cancellation">{{translate.translate('cancellation')}}</option>
           <option value="BoardingChange">{{translate.translate('boardingChange')}}</option>
         </select>
@@ -14,7 +15,7 @@
         <label>{{translate.translate('pnrNumber')}}</label>
         <input
           type="text"
-          [formControl]="pnrNumber"
+          formControlName="pnrNumber"
           maxlength="10"
 
           pattern="[0-9]*"
@@ -28,7 +29,7 @@
         <label>{{translate.translate('trainNumber')}}</label>
         <input
           type="text"
-          [formControl]="trainNumber"
+          formControlName="trainNumber"
           maxlength="5"
           pattern="[0-9]*"
           inputmode="numeric"
@@ -39,7 +40,7 @@
 
       <div class="form-group">
         <label>{{translate.translate('captcha')}}</label>
-        <input [formControl]="captcha" type="text" class="form-control" placeholder="{{translate.translate('enterCaptcha')}}" />
+        <input formControlName="captcha" type="text" class="form-control" placeholder="{{translate.translate('enterCaptcha')}}" />
       </div>
       <div class="captcha-container">
         <div class="captcha-box">{{captchaText}}</div>
@@ -49,7 +50,7 @@
       </div>
 
       <div class="checkbox-group">
-        <input [formControl]="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
+        <input formControlName="isChecked" style="cursor: pointer" type="checkbox" id="terms" />
         <label  for="terms" style="cursor: pointer">
           {{translate.translate('terms')}} </label
         >
@@ -57,15 +58,16 @@
       </div>
 
       <div class="form-buttons">
-        <button
-        (click)="onSubmit()"
-        [disabled]="!formValid() || !isChecked"
+        <button type="submit"
+
+        [disabled]="ticketForm.invalid || !ticketForm.value.isChecked"
         class="btn-submit">
         {{translate.translate('submit')}}
       </button>
         <button (click)="onReset()" class="btn-reset">{{translate.translate('reset')}}</button>
       </div>
     </div>
+    </form>
   </div>
 
   <div class="sample-ticket">

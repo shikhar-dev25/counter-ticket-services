@@ -210,4 +210,8 @@
     padding: 8px;
     margin-bottom: 15px;
   }
+
+  .select-column, .check-box {
+    visibility: hidden !important;
+  }
 }
