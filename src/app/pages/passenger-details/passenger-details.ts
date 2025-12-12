@@ -25,7 +25,7 @@ export class PassengerDetails {
 
   onCancelTicket() {
     if(!this.passenger1selected.value && !this.passenger2selected.value){
-      alert("Please select at least ticket");
+      alert(this.translate.translate('alertText'));
       return;
     }
 

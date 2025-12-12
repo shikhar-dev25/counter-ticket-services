@@ -27,7 +27,7 @@
         </div>}
         <div class="info-row">
           <span class="label">{{!isChanged() ? translate.translate('boardingStation') : translate.translate('boardingTitle')}}</span>
-          <span style="font-weight: 700; color: #000000;" class="value">{{!isChanged() ? "NDLS" : newBoardingPoint}}</span>
+          <span style="font-weight: 700; color: #000000;" class="value">{{!isChanged() ? "NDLS" : newBoardingPoint.value}}</span>
         </div>
         @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('bookingAmount')}}</span>

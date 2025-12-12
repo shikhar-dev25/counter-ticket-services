@@ -52,6 +52,7 @@ export class Translation {
   currentStatus: 'Current Status',
   select: 'Select',
   trainName: 'Train Name',
+  alertText: 'Please select at least one ticket',
 
   //boarding point
   boardingTitle: 'New Boarding Point',
@@ -138,6 +139,7 @@ export class Translation {
   currentStatus: 'वर्तमान स्थिति',
   select: 'चयन करें',
   trainName: 'ट्रेन का नाम',
+  alertText: 'कृपया कम से कम एक टिकट चुनें',
 
   //Boarding point
   selectBoarding: 'नया बोर्डिंग पॉइंट चुनें',

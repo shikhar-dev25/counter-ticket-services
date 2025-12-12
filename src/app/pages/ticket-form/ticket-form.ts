@@ -41,33 +41,24 @@ export class TicketForm {
   }
 
 
-
-
-
   onSubmit() {
-    // Check if form is valid
     if (this.ticketForm.invalid) {
-      // Mark all fields as touched to show validation errors
       this.ticketForm.markAllAsTouched();
       return;
     }
 
-    // Get form values
     const formValues = this.ticketForm.value;
 
-    // Validate captcha
     if (formValues.captcha !== this.captchaText) {
       alert("Wrong Captcha!");
       this.refreshCaptcha();
       return;
     }
 
-    // Store in service
     this.ticket.pnrNumber = formValues.pnrNumber!;
     this.ticket.trainNumber = formValues.trainNumber!;
     this.ticket.transactionType = formValues.transactionType!;
 
-    // Navigate to OTP page
     this.router.navigate(['/otp']);
   }
 
