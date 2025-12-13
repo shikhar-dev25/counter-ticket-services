@@ -20,6 +20,5 @@ export class Ticket {
   //   this.trainNumber = "";
   //   this.transactionType = "";
   //   this.otp = "";
-
   // }
 }

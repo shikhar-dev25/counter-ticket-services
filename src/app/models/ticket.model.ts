@@ -38,8 +38,6 @@ export interface OtpData {
   id: number;
   pnr: string;
   otp: string;
-  generatedAt: string;
-  expiresAt: string;
   isVerified: boolean;
 }
 
@@ -47,5 +45,4 @@ export interface BoardingStation {
   id: number;
   code: string;
   name: string;
-  arrivalTime: string;
 }

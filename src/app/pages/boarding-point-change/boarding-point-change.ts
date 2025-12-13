@@ -18,7 +18,6 @@ export class BoardingPointChange {
   isChecked = new FormControl(false);
 
   ticketData = signal<TicketData | null>(null);
-  boardingStations = signal<BoardingStation[]>([]);
   isLoading = signal(true);
 
   constructor(
@@ -33,7 +32,7 @@ export class BoardingPointChange {
   loadData() {
     const pnr = this.ticket.pnrNumber;
 
-    // Fetch ticket data
+
     this.apiService.getTicketByPnr(pnr).subscribe({
       next: (tickets) => {
         if (tickets.length > 0) {
@@ -47,8 +46,6 @@ export class BoardingPointChange {
       }
     });
 
-    // Fetch boarding stations (you can create this method in API service)
-    // For now, we'll use a simple approach
   }
 
   isSelected() {
