@@ -1,0 +1,142 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "pnr": "1234567890",
+      "trainNumber": "12345",
+      "trainName": "SWATANTRTA S EXP",
+      "journeyDate": "02-12-2025",
+      "fromStation": "NDLS",
+      "fromStationName": "New Delhi",
+      "toStation": "JYG",
+      "toStationName": "Jaynagar",
+      "journeyClass": "3A",
+      "quota": "GN",
+      "boardingStation": "NDLS",
+      "boardingStationName": "New Delhi",
+      "reservationUpto": "JYG",
+      "bookingAmount": 3100,
+      "voucherAmount": 0,
+      "rtcAmount": 0,
+      "refundAmount": 0,
+      "transactionType": "Cancellation",
+      "passengers": [
+        {
+          "id": 1,
+          "slNo": 1,
+          "name": "Raghav",
+          "age": 23,
+          "gender": "M",
+          "bookingStatus": "CNF/B4/9",
+          "currentStatus": "CNF",
+          "berth": "B4/9",
+          "isSelected": false,
+          "isCancelled": false
+        },
+        {
+          "id": 2,
+          "slNo": 2,
+          "name": "Hitesh",
+          "age": 32,
+          "gender": "M",
+          "bookingStatus": "CNF/B4/10",
+          "currentStatus": "CNF",
+          "berth": "B4/10",
+          "isSelected": false,
+          "isCancelled": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "pnr": "9876543210",
+      "trainNumber": "54321",
+      "trainName": "RAJDHANI EXP",
+      "journeyDate": "05-12-2025",
+      "fromStation": "NDLS",
+      "fromStationName": "New Delhi",
+      "toStation": "BCT",
+      "toStationName": "Mumbai Central",
+      "journeyClass": "2A",
+      "quota": "GN",
+      "boardingStation": "NDLS",
+      "boardingStationName": "New Delhi",
+      "reservationUpto": "BCT",
+      "bookingAmount": 4500,
+      "voucherAmount": 0,
+      "rtcAmount": 0,
+      "refundAmount": 0,
+      "transactionType": "Cancellation",
+      "passengers": [
+        {
+          "id": 3,
+          "slNo": 1,
+          "name": "Sonnam",
+          "age": 28,
+          "gender": "F",
+          "bookingStatus": "CNF/A1/15",
+          "currentStatus": "CNF",
+          "berth": "A1/15",
+          "isSelected": false,
+          "isCancelled": false
+        },
+        {
+          "id": 4,
+          "slNo": 2,
+          "name": "Rohan",
+          "age": 35,
+          "gender": "M",
+          "bookingStatus": "CNF/A1/16",
+          "currentStatus": "CNF",
+          "berth": "A1/16",
+          "isSelected": false,
+          "isCancelled": false
+        }
+      ]
+    }
+  ],
+  "otps": [
+    {
+      "id": 1,
+      "pnr": "1234567890",
+      "otp": "123456",
+      "generatedAt": "2025-12-12T10:00:00Z",
+      "expiresAt": "2025-12-12T10:10:00Z",
+      "isVerified": false
+    },
+    {
+      "id": 2,
+      "pnr": "9876543210",
+      "otp": "654321",
+      "generatedAt": "2025-12-12T10:00:00Z",
+      "expiresAt": "2025-12-12T10:10:00Z",
+      "isVerified": false
+    }
+  ],
+  "boardingStations": [
+    {
+      "id": 1,
+      "code": "NDLS",
+      "name": "New Delhi",
+      "arrivalTime": "00:00"
+    },
+    {
+      "id": 2,
+      "code": "AGC",
+      "name": "Agra Cantt",
+      "arrivalTime": "03:30"
+    },
+    {
+      "id": 3,
+      "code": "CNB",
+      "name": "Kanpur Central",
+      "arrivalTime": "07:15"
+    },
+    {
+      "id": 4,
+      "code": "LKO",
+      "name": "Lucknow",
+      "arrivalTime": "09:45"
+    }
+  ]
+}

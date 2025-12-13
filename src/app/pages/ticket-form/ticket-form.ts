@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ticket } from '../../services/ticket';
 import { Translation } from '../../services/translation';
+import { ApiService } from '../../services/api';
+import { TicketData } from '../../models/ticket.model';
 @Component({
   selector: 'app-ticket-form',
   imports: [ReactiveFormsModule],
@@ -13,7 +15,8 @@ export class TicketForm {
   constructor(
     private router: Router,
     public ticket: Ticket,
-    public translate: Translation
+    public translate: Translation,
+    private apiService: ApiService
   ) { this.captchaGenerator()}
 
   captchaText = "";
@@ -48,6 +51,7 @@ export class TicketForm {
     }
 
     const formValues = this.ticketForm.value;
+      console.log('Form Values:', formValues);
 
     if (formValues.captcha !== this.captchaText) {
       alert("Wrong Captcha!");
@@ -55,17 +59,31 @@ export class TicketForm {
       return;
     }
 
-    this.ticket.pnrNumber = formValues.pnrNumber!;
-    this.ticket.trainNumber = formValues.trainNumber!;
-    this.ticket.transactionType = formValues.transactionType!;
+    this.apiService.verifyTicket(formValues.pnrNumber!, formValues.trainNumber!)
+      .subscribe({
+        next: (tickets) => {
+          if (tickets.length === 0) {
+            alert("Invalid PNR or Train Number!");
+            return;
+          }
 
-    this.router.navigate(['/otp']);
+          this.ticket.pnrNumber = formValues.pnrNumber!;
+          this.ticket.trainNumber = formValues.trainNumber!;
+          this.ticket.transactionType = formValues.transactionType!;
+          this.router.navigate(['/otp']);
+        },
+        error: () => {
+          alert("Unable to verify. Please try again.");
+        }
+      });
   }
+
 
   onReset() {
     this.ticketForm.reset({
       transactionType: 'Cancellation'
     });
     this.refreshCaptcha();
+
   }
 }

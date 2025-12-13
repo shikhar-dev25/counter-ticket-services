@@ -1,5 +1,15 @@
 <div class="details-container">
   <div class="details-section">
+
+    @if (isLoading()) {
+      <div style="text-align: center; padding: 50px;">
+        <p>Loading ticket details...</p>
+      </div>
+    }
+
+    @if (!isLoading() && ticketData()) {
+
+
     @if (isChanged()) {
       <div class="success-message">
         {{ translate.translate('successMessage') }}
@@ -11,19 +21,19 @@
       <div class="info-column">
         <div class="info-row">
           <span class="label">{{translate.translate('pnrNumber')}}</span>
-          <span class="value">{{ticket.pnrNumber}}</span>
+          <span class="value">{{ticketData()!.pnr}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('trainNumber')}}</span>
-          <span class="value">{{ticket.trainNumber}}</span>
+          <span class="value">{{ticketData()!.trainNumber}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('fromStation')}}</span>
-          <span class="value">NDLS</span>
+          <span class="value">{{ticketData()!.fromStationName}}</span>
         </div>
         @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('quota')}}</span>
-          <span class="value">GN</span>
+          <span class="value">{{ticketData()!.quota}}</span>
         </div>}
         <div class="info-row">
           <span class="label">{{!isChanged() ? translate.translate('boardingStation') : translate.translate('boardingTitle')}}</span>
@@ -31,7 +41,7 @@
         </div>
         @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('bookingAmount')}}</span>
-          <span class="value">3100</span>
+          <span class="value">{{ticketData()!.bookingAmount}}</span>
         </div>}
         @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('voucherAmount')}}</span>
@@ -46,23 +56,23 @@
       <div class="info-column">
         <div class="info-row">
           <span class="label">{{translate.translate('journeyDate')}}</span>
-          <span class="value">02-12-2025</span>
+          <span class="value">{{ticketData()!.journeyDate}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('trainName')}}</span>
-          <span class="value">SWATANTRTA S EXP</span>
+          <span class="value">{{ticketData()!.trainName}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('toStation')}}</span>
-          <span class="value">JYG</span>
+          <span class="value">{{ticketData()!.toStationName}}</span>
         </div>
         <div class="info-row">
           <span class="label">{{translate.translate('journeyClass')}}</span>
-          <span class="value">3A</span>
+          <span class="value">{{ticketData()!.journeyClass}}</span>
         </div>
         @if (!isChanged()) {<div class="info-row">
           <span class="label">{{translate.translate('reservationUpto')}}</span>
-          <span class="value">JYG</span>
+          <span class="value">{{ticketData()!.toStationName}}</span>
         </div>}
       </div>
     </div>
@@ -85,19 +95,19 @@
             <tbody>
                 <tr>
                 <td>1</td>
-                <td>RRRRR</td>
-                <td>23</td>
-                <td>M</td>
-                <td>CNF/B4/9</td>
+                <td>{{ ticketData()!.passengers[0].name}}</td>
+                <td>{{ ticketData()!.passengers[0].age}}</td>
+                <td>{{ ticketData()!.passengers[0].gender}}</td>
+                <td>{{ ticketData()!.passengers[0].bookingStatus}}</td>
                 <td>CNF/</td>
                 <td><input [formControl]="isChecked" type="checkbox"></td>
                 </tr>
                 <tr>
                 <td>2</td>
-                <td>HHHH</td>
-                <td>32</td>
-                <td>M</td>
-                <td>CNF/B4/10</td>
+                <td>{{ ticketData()!.passengers[1].name}}</td>
+                <td>{{ ticketData()!.passengers[1].age}}</td>
+                <td>{{ ticketData()!.passengers[1].gender}}</td>
+                <td>{{ ticketData()!.passengers[1].bookingStatus}}</td>
                 <td>CNF/</td>
                 <td><input [formControl]="isChecked" type="checkbox"></td>
                 </tr>
@@ -130,6 +140,6 @@
         <button class="btn-reset" (click)="onBack()">
           {{ translate.translate('back') }}
         </button>
-
+      }
   </div>
 </div>
