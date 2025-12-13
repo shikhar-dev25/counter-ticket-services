@@ -105,7 +105,7 @@
             }
           </tr>
           <tr>
-            <td>2</td>`
+            <td>1</td>
             <td>{{ ticketData()!.passengers[1].name}}</td>
             <td>{{ ticketData()!.passengers[1].age}}</td>
             <td>{{ ticketData()!.passengers[1].gender}}</td>
@@ -113,7 +113,6 @@
             <td>{{ passenger2cancelled() ? 'CAN/' : 'CNF/' }}</td>
             @if (!passenger2cancelled()) {
             <td><input class="check-box" [formControl]="passenger2selected" type="checkbox" /></td>
-
             }
           </tr>
         </tbody>

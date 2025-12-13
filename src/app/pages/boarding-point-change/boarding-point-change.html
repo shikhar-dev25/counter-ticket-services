@@ -2,18 +2,17 @@
   <div class="details-section">
 
     @if (isLoading()) {
-      <div style="text-align: center; padding: 50px;">
-        <p>Loading ticket details...</p>
-      </div>
+    <div style="text-align: center; padding: 50px;">
+      <p>Loading ticket details...</p>
+    </div>
     }
 
     @if (!isLoading() && ticketData()) {
 
-
     @if (isChanged()) {
-      <div class="success-message">
-        {{ translate.translate('successMessage') }}
-      </div>
+    <div class="success-message">
+      {{ translate.translate('successMessage') }}
+    </div>
     }
     <h2 class="section-title">{{translate.translate('ticketDetails')}}</h2>
 
@@ -36,8 +35,10 @@
           <span class="value">{{ticketData()!.quota}}</span>
         </div>}
         <div class="info-row">
-          <span class="label">{{!isChanged() ? translate.translate('boardingStation') : translate.translate('boardingTitle')}}</span>
-          <span style="font-weight: 700; color: #000000;" class="value">{{!isChanged() ? "NDLS" : newBoardingPoint.value}}</span>
+          <span class="label">{{!isChanged() ? translate.translate('boardingStation') :
+            translate.translate('boardingTitle')}}</span>
+          <span style="font-weight: 700; color: #000000;" class="value">{{!isChanged() ? "NDLS" :
+            newBoardingPoint.value}}</span>
         </div>
         @if (!isChanged()){<div class="info-row">
           <span class="label">{{translate.translate('bookingAmount')}}</span>
@@ -79,67 +80,70 @@
 
     @if (!isChanged()){
     <h3 class="section-header">{{translate.translate('passengerDetails')}}</h3>
-     <div class="passenger-details">
-            <table class="details-table">
-            <thead>
-              <tr>
-                <th>{{translate.translate('slNo')}}</th>
-                <th>{{translate.translate('name')}}</th>
-                <th>{{translate.translate('age')}}</th>
-                <th>{{translate.translate('gender')}}</th>
-                <th>{{translate.translate('bookingStatus')}}</th>
-                <th>{{translate.translate('currentStatus')}}</th>
-                <th>{{translate.translate('select')}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>1</td>
-                <td>{{ ticketData()!.passengers[0].name}}</td>
-                <td>{{ ticketData()!.passengers[0].age}}</td>
-                <td>{{ ticketData()!.passengers[0].gender}}</td>
-                <td>{{ ticketData()!.passengers[0].bookingStatus}}</td>
-                <td>CNF/</td>
-                <td><input [formControl]="isChecked" type="checkbox"></td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>{{ ticketData()!.passengers[1].name}}</td>
-                <td>{{ ticketData()!.passengers[1].age}}</td>
-                <td>{{ ticketData()!.passengers[1].gender}}</td>
-                <td>{{ ticketData()!.passengers[1].bookingStatus}}</td>
-                <td>CNF/</td>
-                <td><input [formControl]="isChecked" type="checkbox"></td>
-                </tr>
-            </tbody>
-            </table>
-     </div>}
+    <div class="passenger-details">
+      <table class="details-table">
+        <thead>
+          <tr>
+            <th>{{translate.translate('slNo')}}</th>
+            <th>{{translate.translate('name')}}</th>
+            <th>{{translate.translate('age')}}</th>
+            <th>{{translate.translate('gender')}}</th>
+            <th>{{translate.translate('bookingStatus')}}</th>
+            <th>{{translate.translate('currentStatus')}}</th>
+            <th>{{translate.translate('select')}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>{{ ticketData()!.passengers[0].name}}</td>
+            <td>{{ ticketData()!.passengers[0].age}}</td>
+            <td>{{ ticketData()!.passengers[0].gender}}</td>
+            <td>{{ ticketData()!.passengers[0].bookingStatus}}</td>
+            <td>CNF/</td>
+            <td><input [formControl]="isChecked" type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>{{ ticketData()!.passengers[1].name}}</td>
+            <td>{{ ticketData()!.passengers[1].age}}</td>
+            <td>{{ ticketData()!.passengers[1].gender}}</td>
+            <td>{{ ticketData()!.passengers[1].bookingStatus}}</td>
+            <td>CNF/</td>
+            <td><input [formControl]="isChecked" type="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>}
 
-     @if (!isChanged()){<div class="boarding-container">
-        <h2>{{translate.translate('boardingTitle')}}</h2>
-          <select [formControl]="newBoardingPoint" class="form-control">
-            <option value="">{{translate.translate('selectBoarding')}}</option>
-            <option value="NDLS">NDLS - New Delhi</option>
-            <option value="AGC">AGC - Agra Cantt</option>
-            <option value="CNB">CNB - Kanpur Central</option>
-            <option value="LKO">LKO - Lucknow</option>
-          </select>
-     </div>}
+    @if (!isChanged()){<div class="boarding-container">
+      <h2>{{translate.translate('boardingTitle')}}</h2>
+      <select [formControl]="newBoardingPoint" class="form-control">
+        <option value="">{{translate.translate('selectBoarding')}}</option>
+        <option value="NDLS">NDLS - New Delhi</option>
+        <option value="AGC">AGC - Agra Cantt</option>
+        <option value="CNB">CNB - Kanpur Central</option>
+        <option value="LKO">LKO - Lucknow</option>
+      </select>
+    </div>}
 
 
     <div class="form-buttons">
-        @if (!isChanged()) {
-          <button class="btn-submit" [disabled]="!isSelected()" (click)="onSubmit()">
-            {{ translate.translate('submit') }}
-          </button>
-        } @else {
-          <button class="btn-print" (click)="onPrint()">
-            {{ translate.translate('printTicket') }}
-          </button>
-        }
-        <button class="btn-reset" (click)="onBack()">
-          {{ translate.translate('back') }}
-        </button>
+      @if (!isChanged()) {
+      <button class="btn-submit" [disabled]="!isSelected()" (click)="onSubmit()">
+        {{ translate.translate('submit') }}
+      </button>
+      } @else {
+      <button class="btn-print" (click)="onPrint()">
+        {{ translate.translate('printTicket') }}
+      </button>
       }
+      <button class="btn-reset" (click)="onBack()">
+        {{ translate.translate('back') }}
+      </button>
+    </div>
+
+    }
+
   </div>
 </div>
