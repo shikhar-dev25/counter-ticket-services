@@ -5,7 +5,7 @@
 - Angular CLI:
   ```bash
   npm install -g @angular/cli
-````
+  ````
 
 * JSON Server:
 
@@ -55,25 +55,3 @@ ng serve
 * **OTP:** `654321`
 
 ## Features
-
-* Ticket verification with PNR validation
-* OTP-based authentication
-* Passenger cancellation
-* Boarding point modification
-* Multi-language support (English/Hindi)
-
-## Tech Stack
-
-* Angular 19 (Standalone Components)
-* JSON Server (Mock API)
-* Reactive Forms
-* TypeScript
-
----
-
-**Developed as part of internship project**
-
-```
-
-Save it as **`README.md`** in your project root.
-```
